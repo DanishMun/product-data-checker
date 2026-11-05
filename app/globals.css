@@ -1,0 +1,93 @@
+/* Colours taken from RockOn's website CSS */
+:root {
+  --bg: #100118;        /* page background (very dark purple) */
+  --panel: #1c022a;     /* cards and table */
+  --purple: #500778;    /* glow */
+  --pink: #bb16a3;      /* buttons, links, accents */
+  --blue: #009fdf;      /* thin divider lines */
+  --white: #ffffff;
+  --muted: #b9adc6;     /* soft grey-purple text */
+  --red: #ff5c7a;       /* problems (brighter, so it reads on dark) */
+  --green: #3ddc97;     /* all good */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-sans), Arial, sans-serif;
+  /* dark background with a soft purple glow in the middle, like their site */
+  background: radial-gradient(ellipse at 50% 0%, #2a0a45 0%, var(--bg) 60%) fixed, var(--bg);
+  min-height: 100vh;
+}
+
+main { max-width: 900px; margin: 0 auto; padding: 64px 16px; }
+
+/* Big, bold, uppercase headings */
+h1 {
+  margin: 0;
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* The italic serif line under the heading */
+.tagline {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(18px, 3vw, 24px);
+  margin: 16px 0 8px;
+}
+.intro { color: var(--muted); margin: 0 0 32px; line-height: 1.6; }
+
+/* Cards have the thin blue line on the left, like their footer menu */
+.card {
+  background: var(--panel);
+  border-left: 2px solid var(--blue);
+  padding: 24px;
+}
+
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.button {
+  background: var(--pink);
+  color: var(--white);
+  border: 2px solid var(--pink);
+  padding: 12px 24px;
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+.button.secondary { background: transparent; color: var(--pink); }
+.button:hover { opacity: 0.85; }
+.hint { color: var(--muted); font-size: 14px; margin: 16px 0 0; }
+.error { color: var(--red); }
+
+/* Summary numbers, split by blue lines */
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); margin: 32px 0; }
+.stat { text-align: center; padding: 8px; }
+.stat + .stat { border-left: 2px solid var(--blue); }
+.stat strong { display: block; font-size: clamp(28px, 6vw, 44px); color: var(--pink); }
+.stat span { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Results table */
+.table-wrap { overflow-x: auto; background: var(--panel); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid #2e0f44; vertical-align: top; }
+th { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.score { font-weight: 700; }
+.score.good { color: var(--green); }
+.score.bad { color: var(--red); }
+.tag {
+  display: inline-block;
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 2px 8px;
+  margin: 2px 4px 2px 0;
+  font-size: 13px;
+}
+.tag.ok { border-color: var(--green); color: var(--green); }

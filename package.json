@@ -1,0 +1,20 @@
+{
+  "name": "product-data-checker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "next": "^16.4.2",
+    "papaparse": "^5.5.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "vitest": "^5.1.0"
+  }
+}
